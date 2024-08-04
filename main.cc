@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <tuple>
 
 #include "vec3.hh"
 
@@ -19,4 +20,9 @@ int main(int argc, char **argv) {
     };
 std::cout << foo << std::endl;
 
+int x = 0;
+double y = 1;
+auto var = std::tuple(x, y);
+auto &[xx, yy] = var;
+std::cout << xx << " " << yy << std::endl;
 }
