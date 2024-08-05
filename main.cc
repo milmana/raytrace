@@ -13,6 +13,7 @@ int main(int argc, char **argv) {
     auto dir = vec3<double>{21., 22., 23.};
     ray3 ray{orig, dir};
     std::cout << ray << std::endl;
+    std::cout << vec * .001 << std::endl;
 
     return 0;
 
