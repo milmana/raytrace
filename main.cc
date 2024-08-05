@@ -6,10 +6,12 @@
 
 int main(int argc, char **argv) {
 
-    vec3 vec{1., 2., 3.};
+    auto vec = vec3<double>{1., 2., 3.};
     std::cout << vec << std::endl;
 
-    ray3<double> ray{{15., 16., 17.}, {21., 22., 23.}};
+    auto orig = vec3<double>{15., 16., 17.};
+    auto dir = vec3<double>{21., 22., 23.};
+    ray3 ray{orig, dir};
     std::cout << ray << std::endl;
 
     return 0;

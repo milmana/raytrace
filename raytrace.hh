@@ -6,6 +6,7 @@ struct vec3 {
     
     std::vector<T> v_;
 
+    vec3() { v_ = {0., 0., 0.};  }
     vec3(T x, T y, T z) { v_ = {x,y,z}; }
 
     T x() const { return v_[0]; }
@@ -28,8 +29,8 @@ struct ray3 {
         dir_ = direction;
     }
 
-    vec3<T> origin() { return orig_;  }
-    vec3<T> direction() { return dir_;  }
+    vec3<T> origin() const { return {1., 2., 3.};  }
+    vec3<T> direction() const { return dir_;  }
 };
 
 template<typename T>
