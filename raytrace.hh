@@ -1,5 +1,15 @@
 #include <iostream>
+#include <string>
+#include <fstream>
 #include <vector>
+
+struct ppm_writer {
+    
+    ppm_writer(std::string fname, int cols, int rows, int max_intensity) {
+        auto file_handle = std::ofstream(fname, std::ios::out);
+    }
+    ~ppm_writer(){}
+}
 
 template <typename T>
 struct vec3 {
