@@ -9,15 +9,37 @@ struct vec3 {
     vec3() { val = {0., 0., 0.};  }
     vec3(T x, T y, T z) { val = {x,y,z}; }
 
-    vec3<T> operator*(const vec3<T> &rhs) { return {val[0] * rhs.val[0], val[1] * rhs.val[1], val[2] * rhs.val[2]}; }
-
-    vec3<T> operator*(const T &rhs) { return {val[0] * rhs, val[1] * rhs, val[2] * rhs}; }
-
-    vec3<T> operator+(const vec3<T> &rhs) { return {val[0] + rhs.val[0], val[1] + rhs.val[1], val[2] + rhs.val[2]}; }
-
-    vec3<T> operator+(const T &rhs) { return {val[0] + rhs, val[1] + rhs, val[2] + rhs}; }
-
 };
+
+template <typename T>
+vec3<T> operator*(const vec3<T>& lhs, const vec3<T> &rhs) { 
+    return {lhs.val[0] * rhs.val[0], lhs.val[1] * rhs.val[1], lhs.val[2] * rhs.val[2]}; 
+}
+
+template <typename T>
+vec3<T> operator*(const vec3<T>& lhs, const T& rhs) { 
+    return {lhs.val[0] * rhs, lhs.val[1] * rhs, lhs.val[2] * rhs}; 
+}
+
+template <typename T>
+vec3<T> operator*(const T& lhs, const vec3<T>& rhs) { 
+    return {lhs * rhs.val[0], lhs * rhs.val[1], lhs * rhs.val[2]}; 
+}
+
+template <typename T>
+vec3<T> operator+(const vec3<T>& lhs, const vec3<T>& rhs) { 
+    return {lhs.val[0] + rhs.val[0], lhs.val[1] + rhs.val[1], lhs.val[2] + rhs.val[2]}; 
+}
+
+template <typename T>
+vec3<T> operator+(const vec3<T>& lhs, const T& rhs) { 
+    return {lhs.val[0] + rhs, lhs.val[1] + rhs, lhs.val[2] + rhs}; 
+}
+
+template <typename T>
+vec3<T> operator+(const T& lhs, const vec3<T>& rhs) { 
+    return {lhs + rhs.val[0], lhs + rhs.val[1], lhs + rhs.val[2]}; 
+}
 
 template<typename T>
 std::ostream &operator<<(std::ostream &os, const vec3<T> &v)
@@ -39,7 +61,7 @@ struct ray3 {
         b = dir;
     }
 
-    vec3<T> operator()(const T t) { return a + b * t;  }
+    vec3<T> operator()(const T t) { return a + t*b;  }
 };
 
 template<typename T>

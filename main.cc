@@ -14,6 +14,9 @@ int main(int argc, char **argv) {
     ray3 ray{orig, dir};
     std::cout << ray << std::endl;
     std::cout << vec * .001 << std::endl;
+    std::cout << .2 * vec << std::endl;
+
+    std::cout << ray(100) << std::endl;
 
     return 0;
 
