@@ -12,6 +12,8 @@ struct vec3 {
     T x() const { return v_[0]; }
     T y() const { return v_[1]; }
     T z() const { return v_[2]; }
+
+    T operator*(const T other) { return vec3<T>{other * x(), other * y(), other * z()}}
 };
 
 template<typename T>
@@ -31,6 +33,8 @@ struct ray3 {
 
     vec3<T> origin() const { return {1., 2., 3.};  }
     vec3<T> direction() const { return dir_;  }
+
+    vec3<T> operator()(T t) { return orig_ + t * dir_; }
 };
 
 template<typename T>
