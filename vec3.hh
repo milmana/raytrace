@@ -4,19 +4,6 @@
 #include <vector>
 #include <stdexcept>
 
-struct ppm_writer {
-
-        std::ofstream handle_;
-
-        ppm_writer(std::string fname, int cols, int rows, int max_intensity) {
-                handle_ = std::ofstream(fname, std::ios::out);
-                if ( ! handle_.is_open()) throw std::runtime_error("failed to open");
-        }
-
-        ~ppm_writer(){ handle_.close(); }
-
-};
-
 template <typename T>
 struct vec3 {
 
